@@ -1,0 +1,239 @@
+{
+  "schema": "elucenia-public-research-provenance-v1",
+  "id": "gprofiler-gost",
+  "implementationVersion": "ELUCENIA-research-api-2026-10-05-v3",
+  "sourceSnapshot": {
+    "websiteFreezeSha256": "b7ff37bd2e4c18b959c3431d9ff57d8ec654fbafacb0443eaea8be0c4a68b435",
+    "methodTransportSha256": "b862226c9d3b9956848ef29eb03177e6c4b64e8c2157f1ca360611c4ba1de036",
+    "providerLockSha256": "08ecf09dfdc0577008a720df82735ca26fc1bec2e1e8f7a49cb2817d2a86a9f1"
+  },
+  "primarySources": [
+    "https://biit.cs.ut.ee/gprofiler/page/apis",
+    "https://biit.cs.ut.ee/gprofiler/page/faq",
+    "https://geneontology.org/docs/go-citation-policy/"
+  ],
+  "fixtureScope": "Captured official API responses for fixed public/synthetic research inputs; no actual patient submission, provider binary or private portal source.",
+  "fixtureHashes": [
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/util/data_versions/?organism=hsapiens",
+      "method": "GET",
+      "input": null,
+      "status": 200,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305",
+      "bytes": 1143,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:43:23.080Z",
+      "file": "response-01.txt",
+      "originalReceipt": {
+        "folder": "live-services-r1",
+        "sha256": "49177aa88e927f9e029ee4c1a3e5507d53b78bd74a63f4e67d2c3346e00c55eb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+      "method": "POST",
+      "input": {
+        "organism": "hsapiens",
+        "query": [
+          "CASQ2",
+          "CASQ1",
+          "GSTO1",
+          "DMD",
+          "GSTM2"
+        ],
+        "sources": [
+          "GO:MF",
+          "GO:CC",
+          "GO:BP"
+        ],
+        "user_threshold": 0.05,
+        "all_results": false,
+        "ordered": false,
+        "no_iea": false,
+        "domain_scope": "annotated",
+        "significance_threshold_method": "g_SCS",
+        "no_evidences": false,
+        "numeric_ns": "ENTREZGENE_ACC"
+      },
+      "status": 200,
+      "sha256": "b84b61122321f58a69566d84d40da0cf8f392ee5bafcd909acacbb5d58357b0d",
+      "bytes": 67889,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:43:25.145Z",
+      "file": "response-02.txt",
+      "originalReceipt": {
+        "folder": "live-services-r1",
+        "sha256": "49177aa88e927f9e029ee4c1a3e5507d53b78bd74a63f4e67d2c3346e00c55eb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/util/data_versions/?organism=hsapiens",
+      "method": "GET",
+      "input": null,
+      "status": 200,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305",
+      "bytes": 1143,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:26.808Z",
+      "file": "response-03.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+      "method": "POST",
+      "input": {
+        "organism": "hsapiens",
+        "query": [
+          "CASQ2",
+          "CASQ1",
+          "GSTO1",
+          "DMD",
+          "GSTM2"
+        ],
+        "sources": [
+          "GO:BP"
+        ],
+        "user_threshold": 0.05,
+        "all_results": false,
+        "ordered": false,
+        "no_iea": true,
+        "domain_scope": "annotated",
+        "significance_threshold_method": "bonferroni",
+        "no_evidences": false,
+        "numeric_ns": "ENTREZGENE_ACC"
+      },
+      "status": 200,
+      "sha256": "4eb743ce8701bd68fdf8ee1d814060057d0d3af019fb19f08b399d6bd79f8d30",
+      "bytes": 61249,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:27.751Z",
+      "file": "response-04.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/util/data_versions/?organism=hsapiens",
+      "method": "GET",
+      "input": null,
+      "status": 200,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305",
+      "bytes": 1143,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:29.519Z",
+      "file": "response-05.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+      "method": "POST",
+      "input": {
+        "organism": "hsapiens",
+        "query": [
+          "CASQ2",
+          "CASQ1",
+          "GSTO1",
+          "DMD",
+          "GSTM2"
+        ],
+        "sources": [
+          "GO:MF",
+          "GO:CC"
+        ],
+        "user_threshold": 0.05,
+        "all_results": false,
+        "ordered": false,
+        "no_iea": false,
+        "domain_scope": "custom",
+        "background": [
+          "CASQ2",
+          "CASQ1",
+          "GSTO1",
+          "DMD",
+          "GSTM2",
+          "TP53",
+          "BRCA1",
+          "BRCA2",
+          "EGFR",
+          "KRAS"
+        ],
+        "significance_threshold_method": "fdr",
+        "no_evidences": false,
+        "numeric_ns": "ENTREZGENE_ACC"
+      },
+      "status": 200,
+      "sha256": "88d76ec450b5103dc3575351e684e141a042643db4f6da2fd2fe7f1c8ec5dfaf",
+      "bytes": 1084,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:29.799Z",
+      "file": "response-06.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/util/data_versions/?organism=hsapiens",
+      "method": "GET",
+      "input": null,
+      "status": 200,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305",
+      "bytes": 1143,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:31.557Z",
+      "file": "response-07.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    },
+    {
+      "url": "https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+      "method": "POST",
+      "input": {
+        "organism": "hsapiens",
+        "query": [
+          "ELUCENIAXYZUNMAPPED"
+        ],
+        "sources": [
+          "GO:BP"
+        ],
+        "user_threshold": 0.05,
+        "all_results": false,
+        "ordered": false,
+        "no_iea": false,
+        "domain_scope": "annotated",
+        "significance_threshold_method": "g_SCS",
+        "no_evidences": false,
+        "numeric_ns": "ENTREZGENE_ACC"
+      },
+      "status": 200,
+      "sha256": "f1eaffbce1cfe12823740628f6810a881ab94bea6d57380117670a8877f0a0df",
+      "bytes": 763,
+      "contentType": "application/json",
+      "retrievedAt": "2026-10-05T13:45:31.827Z",
+      "file": "response-08.txt",
+      "originalReceipt": {
+        "folder": "live-supplement-r1",
+        "sha256": "8cc35d7be4ddcbac7876b10b69c507a9ae1c57569c4e4fef737ae489601436cb"
+      }
+    }
+  ],
+  "rights": "MIT authored software only; provider data/method rights and attributions remain separate in RIGHTS-SCOPE.md and NOTICE.md",
+  "approval": {
+    "clinical": "not-performed",
+    "professionalLanguage": "not-performed"
+  },
+  "currentProviderHttpEvidence": {
+    "generalReceiptHash": "f2f763fc7ba9fbec8affbfda02a3b8e455e5f88f8c57e3dc0c234263c45dbe06",
+    "iedbCorrectedOrderReceiptHash": "257b338cc8cf5dc57974d0287e48adebfeb275229bf1807a56e657ecb79b9c64",
+    "scope": "Historical v2 loopback HTTP to official APIs only. The current v3 transport has offline tests; fresh compiled R8 provider gates remain required."
+  }
+}

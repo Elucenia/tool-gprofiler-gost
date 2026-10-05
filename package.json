@@ -1,0 +1,15 @@
+{
+  "name": "@elucenia/tool-gprofiler-gost",
+  "version": "2026.10.5",
+  "private": true,
+  "description": "g:GOSt: Gene Ontology enrichment",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "test": "node test.cjs",
+    "start": "node server.cjs"
+  },
+  "dependencies": {}
+}

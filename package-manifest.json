@@ -1,0 +1,218 @@
+{
+  "schema": "elucenia-public-research-package-files-v1",
+  "id": "gprofiler-gost",
+  "implementationVersion": "ELUCENIA-research-api-2026-10-05-v3",
+  "files": [
+    {
+      "path": "cli.cjs",
+      "bytes": 759,
+      "sha256": "96d411b03e5e9d75ef8f5c7ddd0bc3bc13aee0a3503291433bcc3c3a85ff558f"
+    },
+    {
+      "path": "documentation/ar.md",
+      "bytes": 4539,
+      "sha256": "9428b6890036cd0e80cfaf1b53122f1825b01b71d649cf847b903e0899cd54ec"
+    },
+    {
+      "path": "documentation/de.md",
+      "bytes": 3904,
+      "sha256": "be6975589098f4078adae0c979b4ba949cdfd961257bca1e401c0f6d28b215ce"
+    },
+    {
+      "path": "documentation/en.md",
+      "bytes": 3572,
+      "sha256": "ed9de36a77890f671067a90cc4cd4bdbb401ce9624f47fa47b055ac0651754f8"
+    },
+    {
+      "path": "documentation/es.md",
+      "bytes": 3821,
+      "sha256": "b2ebc5b9f6e0108e3330b64d35c40b56353b6a6fcf612c53d87b0d379471b036"
+    },
+    {
+      "path": "documentation/fr.md",
+      "bytes": 3940,
+      "sha256": "c650787e0776834742ada98e503e7736629e5f0c735865742e24f0326c5ab6f4"
+    },
+    {
+      "path": "documentation/hi.md",
+      "bytes": 6262,
+      "sha256": "b0afa829a996e812dfc71d7804eb1a395457b73633cf874eaa09824e50e810b7"
+    },
+    {
+      "path": "documentation/it.md",
+      "bytes": 3772,
+      "sha256": "aecd95248b1132eba2f2131ac8e11d895a3ae8295ceeb124f5e6824a2e45a0f5"
+    },
+    {
+      "path": "documentation/ja.md",
+      "bytes": 3991,
+      "sha256": "49617c41a4c284695dfe279edb82665c6fe47f1bf3bd7803e4d29e0ea4e8d727"
+    },
+    {
+      "path": "documentation/pt-BR.md",
+      "bytes": 3745,
+      "sha256": "e22da912b16676c7aec94fbbd36c0d8eeec899e7f464571348561dda46e66a3e"
+    },
+    {
+      "path": "documentation/zh.md",
+      "bytes": 3363,
+      "sha256": "d1a2e7bfc20b059fb92ce123be20749cfd311c4d2bb67a91b3beebba01f66677"
+    },
+    {
+      "path": "example.json",
+      "bytes": 247,
+      "sha256": "6ba44cd30235f9216db7d839973c0d177ee90b3f72495c911d337d1a292ce50b"
+    },
+    {
+      "path": "fixtures/calls.json",
+      "bytes": 6065,
+      "sha256": "5b1adf7141118258dd444fb473c49f98a3f09e74aefb205915a0de6b6fa00c24"
+    },
+    {
+      "path": "fixtures/response-01.txt",
+      "bytes": 1143,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305"
+    },
+    {
+      "path": "fixtures/response-02.txt",
+      "bytes": 67889,
+      "sha256": "b84b61122321f58a69566d84d40da0cf8f392ee5bafcd909acacbb5d58357b0d"
+    },
+    {
+      "path": "fixtures/response-03.txt",
+      "bytes": 1143,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305"
+    },
+    {
+      "path": "fixtures/response-04.txt",
+      "bytes": 61249,
+      "sha256": "4eb743ce8701bd68fdf8ee1d814060057d0d3af019fb19f08b399d6bd79f8d30"
+    },
+    {
+      "path": "fixtures/response-05.txt",
+      "bytes": 1143,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305"
+    },
+    {
+      "path": "fixtures/response-06.txt",
+      "bytes": 1084,
+      "sha256": "88d76ec450b5103dc3575351e684e141a042643db4f6da2fd2fe7f1c8ec5dfaf"
+    },
+    {
+      "path": "fixtures/response-07.txt",
+      "bytes": 1143,
+      "sha256": "359eeb87b55fa87178ccd2f92744ade451ff220f7503ae9dc3d02b388ea3c305"
+    },
+    {
+      "path": "fixtures/response-08.txt",
+      "bytes": 763,
+      "sha256": "f1eaffbce1cfe12823740628f6810a881ab94bea6d57380117670a8877f0a0df"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1078,
+      "sha256": "268bc5860b6f261a53ced1bf24b3101c3717d61ad0e35d5d905db660fd8a65ba"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 867,
+      "sha256": "3644e0c1476b5d98cc096fbabf6d8bb44194ebe35d5dc2351e851c642ab7eca6"
+    },
+    {
+      "path": "package.json",
+      "bytes": 310,
+      "sha256": "bc4ec3ca401e59f28de85309a29336532993901ca544a1b59822d02832ad8746"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3842,
+      "sha256": "3628918782e39e7b23424548124d93ff1f92c548e046b4479da81eb1c1858282"
+    },
+    {
+      "path": "RIGHTS-SCOPE.md",
+      "bytes": 2638,
+      "sha256": "f7fd8a857537b54ed71f2618cf4626acbd99f6e11c5caeef8786ff897b42bc09"
+    },
+    {
+      "path": "server.cjs",
+      "bytes": 1270,
+      "sha256": "9e3910139a7a93ea83b5b6889fb1ad35ddf281e77764aeda763955f7e0ccbf35"
+    },
+    {
+      "path": "SOURCE-PROVENANCE.json",
+      "bytes": 7953,
+      "sha256": "2d2b580003901c83b0d1b67aaa21ff3fe21e55a76e9a9845a226c948fee09ae7"
+    },
+    {
+      "path": "specification.json",
+      "bytes": 23057,
+      "sha256": "92449e5b58564814146d3e232ef3dba44d1794cf13b91cb327eba8354916b11b"
+    },
+    {
+      "path": "src/research-contracts.json",
+      "bytes": 43695,
+      "sha256": "3a49fe6a4ebf2b4e9f19311511f5dcd1fe27709ec66683dc256bb4f85e5c40bf"
+    },
+    {
+      "path": "src/research-copy-authored.cjs",
+      "bytes": 28993,
+      "sha256": "58dbfb0f0fa8f9bc66271a8433849f77ecc0764c0161eae683b0bc8960f35427"
+    },
+    {
+      "path": "src/research-document-copy-authored.cjs",
+      "bytes": 14209,
+      "sha256": "ecd7e0b394a7e042942838f16e698a2979565fb6499583f5f8ee425ba00824fe"
+    },
+    {
+      "path": "src/research-envelope-schemas.cjs",
+      "bytes": 3892,
+      "sha256": "55f19a83636c076bd299c4a20d1fcdbac8aef12a6c4fd953a1adb82d70e28747"
+    },
+    {
+      "path": "src/research-input.cjs",
+      "bytes": 1841,
+      "sha256": "91d45d609751e180277fe403580ebfb36c9706f9ff7c4e43f1a7eb131e43e19c"
+    },
+    {
+      "path": "src/research-provider-lock.cjs",
+      "bytes": 6617,
+      "sha256": "08ecf09dfdc0577008a720df82735ca26fc1bec2e1e8f7a49cb2817d2a86a9f1"
+    },
+    {
+      "path": "src/research-result-validation.cjs",
+      "bytes": 3343,
+      "sha256": "3414887183b22925f749f65649e74496289ce71024157f522300ad4b088fdb3e"
+    },
+    {
+      "path": "src/research-schemas.cjs",
+      "bytes": 4128,
+      "sha256": "323bb5becd13b1cb14308916fd2331973a3b7456a31c4a3e6906eaad3d7bf888"
+    },
+    {
+      "path": "src/research-scopes-authored.cjs",
+      "bytes": 10009,
+      "sha256": "1c89489292056ee762c595c9b52665b7d0bfb1cc2e11845db9cef3b6dcc95229"
+    },
+    {
+      "path": "src/research-services.cjs",
+      "bytes": 23808,
+      "sha256": "b862226c9d3b9956848ef29eb03177e6c4b64e8c2157f1ca360611c4ba1de036"
+    },
+    {
+      "path": "test.cjs",
+      "bytes": 9942,
+      "sha256": "5da8261b6547361650fb7810461e1ac30a4132a23efe6f499594a495aa965618"
+    },
+    {
+      "path": "TESTS.json",
+      "bytes": 5577,
+      "sha256": "cb15bec6129bd93ff0c80b05cb5b24e7c716a281d740a817f1931a17753bab71"
+    },
+    {
+      "path": "tool.cjs",
+      "bytes": 1651,
+      "sha256": "4d4917d221a472b43f04678b091daa258eccdf325e74e48ec5caa2af7cc9d204"
+    }
+  ],
+  "selfExclusion": "This manifest excludes its own bytes to avoid a circular hash. The published download manifest includes this file."
+}

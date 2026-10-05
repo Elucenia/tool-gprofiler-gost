@@ -1,0 +1,18 @@
+{
+  "genes": [
+    "CASQ2",
+    "CASQ1",
+    "GSTO1",
+    "DMD",
+    "GSTM2"
+  ],
+  "sources": [
+    "GO:MF",
+    "GO:CC",
+    "GO:BP"
+  ],
+  "threshold": 0.05,
+  "correction": "g_SCS",
+  "excludeElectronic": false,
+  "publicResearchData": true
+}

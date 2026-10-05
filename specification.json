@@ -1,0 +1,610 @@
+{
+  "schema": "elucenia-public-research-specification-v1",
+  "id": "gprofiler-gost",
+  "provider": "gost",
+  "implementationVersion": "ELUCENIA-research-api-2026-10-05-v3",
+  "policy": {
+    "url": "https://biit.cs.ut.ee/gprofiler/",
+    "version": "e114_eg62_p19_27110d83",
+    "organism": "hsapiens",
+    "sources": [
+      "GO:BP",
+      "GO:MF",
+      "GO:CC"
+    ],
+    "maxGenes": 100,
+    "maxBackground": 1000,
+    "goRelease": "2026-01-23",
+    "goDoi": "10.5281/zenodo.18422732"
+  },
+  "transportLimits": {
+    "requestMs": 20000,
+    "workflowMs": 120000,
+    "clientMs": 125000,
+    "routeSeconds": 125,
+    "retry": false
+  },
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "genes": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,31}$"
+        },
+        "minItems": 1,
+        "maxItems": 100,
+        "uniqueItems": true
+      },
+      "sources": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "uniqueItems": true,
+        "items": {
+          "enum": [
+            "GO:BP",
+            "GO:MF",
+            "GO:CC"
+          ]
+        }
+      },
+      "threshold": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1
+      },
+      "correction": {
+        "enum": [
+          "g_SCS",
+          "bonferroni",
+          "fdr"
+        ]
+      },
+      "excludeElectronic": {
+        "type": "boolean"
+      },
+      "background": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,31}$"
+        },
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true
+      },
+      "publicResearchData": {
+        "const": true,
+        "description": "Only public or synthetic research inputs; no patient/confidential data."
+      }
+    },
+    "required": [
+      "genes",
+      "sources",
+      "threshold",
+      "correction",
+      "excludeElectronic",
+      "publicResearchData"
+    ],
+    "additionalProperties": false
+  },
+  "responseSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "toolId": {
+        "const": "gprofiler-gost"
+      },
+      "implementationVersion": {
+        "const": "ELUCENIA-research-api-2026-10-05-v3"
+      },
+      "input": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "genes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,31}$"
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "uniqueItems": true
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "GO:BP",
+                "GO:MF",
+                "GO:CC"
+              ]
+            }
+          },
+          "threshold": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          },
+          "correction": {
+            "enum": [
+              "g_SCS",
+              "bonferroni",
+              "fdr"
+            ]
+          },
+          "excludeElectronic": {
+            "type": "boolean"
+          },
+          "background": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{0,31}$"
+            },
+            "minItems": 1,
+            "maxItems": 1000,
+            "uniqueItems": true
+          },
+          "publicResearchData": {
+            "const": true,
+            "description": "Only public or synthetic research inputs; no patient/confidential data."
+          }
+        },
+        "required": [
+          "genes",
+          "sources",
+          "threshold",
+          "correction",
+          "excludeElectronic",
+          "publicResearchData"
+        ],
+        "additionalProperties": false
+      },
+      "retrievedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "format": "uri"
+        },
+        "minItems": 3,
+        "maxItems": 4
+      },
+      "rows": {
+        "type": "array",
+        "items": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "termId": {
+              "type": "string",
+              "pattern": "^GO:\\d{7}$"
+            },
+            "termName": {
+              "type": "string"
+            },
+            "source": {
+              "enum": [
+                "GO:BP",
+                "GO:MF",
+                "GO:CC"
+              ]
+            },
+            "adjustedP": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "overlap": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "querySize": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "termSize": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "universe": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "precision": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "recall": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "evidence": {
+              "type": "array"
+            },
+            "significant": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "termId",
+            "termName",
+            "source",
+            "adjustedP",
+            "overlap",
+            "querySize",
+            "termSize",
+            "universe",
+            "precision",
+            "recall",
+            "evidence",
+            "significant"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "review": {
+        "type": "object",
+        "properties": {
+          "engineeringScope": {
+            "type": "string"
+          },
+          "clinical": {
+            "const": "not-approved"
+          },
+          "professionalLanguage": {
+            "const": "not-approved"
+          }
+        },
+        "required": [
+          "engineeringScope",
+          "clinical",
+          "professionalLanguage"
+        ],
+        "additionalProperties": false
+      },
+      "version": {
+        "type": "object",
+        "properties": {
+          "gProfiler": {
+            "const": "e114_eg62_p19_27110d83"
+          },
+          "ensembl": {
+            "type": "string"
+          },
+          "assembly": {
+            "type": "string"
+          },
+          "sourceVersions": {
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "GO:BP",
+                "GO:MF",
+                "GO:CC"
+              ]
+            },
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "goRelease": {
+            "const": "2026-01-23"
+          },
+          "goDoi": {
+            "const": "10.5281/zenodo.18422732"
+          }
+        },
+        "required": [
+          "gProfiler",
+          "ensembl",
+          "assembly",
+          "sourceVersions",
+          "goRelease",
+          "goDoi"
+        ],
+        "additionalProperties": false
+      },
+      "mapping": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ambiguous": {
+            "type": "object",
+            "description": "Provider gene-mapping metadata, retained as JSON source data; nested keys are provider-defined."
+          },
+          "duplicates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "query": {
+            "type": "object",
+            "description": "Provider gene-mapping metadata, retained as JSON source data; nested keys are provider-defined."
+          }
+        },
+        "required": [
+          "failed",
+          "ambiguous",
+          "duplicates",
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "background": {
+        "enum": [
+          "annotated",
+          "custom"
+        ]
+      },
+      "correction": {
+        "enum": [
+          "g_SCS",
+          "bonferroni",
+          "fdr"
+        ]
+      },
+      "rights": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string"
+          },
+          "dataLicense": {
+            "type": "string"
+          },
+          "licenseUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "releaseUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "doiUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "attribution": {
+            "type": "string"
+          },
+          "otherSources": {
+            "const": false
+          }
+        },
+        "required": [
+          "service",
+          "dataLicense",
+          "licenseUrl",
+          "sourceUrl",
+          "releaseUrl",
+          "doiUrl",
+          "attribution",
+          "otherSources"
+        ],
+        "additionalProperties": false
+      },
+      "scientificText": {
+        "type": "object",
+        "properties": {
+          "termNames": {
+            "type": "string"
+          },
+          "professionalTranslationReview": {
+            "const": false
+          }
+        },
+        "required": [
+          "termNames",
+          "professionalTranslationReview"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "toolId",
+      "implementationVersion",
+      "input",
+      "retrievedAt",
+      "sources",
+      "rows",
+      "review",
+      "version",
+      "mapping",
+      "background",
+      "correction",
+      "rights",
+      "scientificText"
+    ],
+    "additionalProperties": false
+  },
+  "sources": [
+    "https://biit.cs.ut.ee/gprofiler/page/apis",
+    "https://biit.cs.ut.ee/gprofiler/page/faq",
+    "https://geneontology.org/docs/go-citation-policy/"
+  ],
+  "docs": [
+    {
+      "locale": "pt-BR",
+      "path": "documentation/pt-BR.md",
+      "sha256": "e22da912b16676c7aec94fbbd36c0d8eeec899e7f464571348561dda46e66a3e",
+      "bytes": 3745
+    },
+    {
+      "locale": "en",
+      "path": "documentation/en.md",
+      "sha256": "ed9de36a77890f671067a90cc4cd4bdbb401ce9624f47fa47b055ac0651754f8",
+      "bytes": 3572
+    },
+    {
+      "locale": "es",
+      "path": "documentation/es.md",
+      "sha256": "b2ebc5b9f6e0108e3330b64d35c40b56353b6a6fcf612c53d87b0d379471b036",
+      "bytes": 3821
+    },
+    {
+      "locale": "fr",
+      "path": "documentation/fr.md",
+      "sha256": "c650787e0776834742ada98e503e7736629e5f0c735865742e24f0326c5ab6f4",
+      "bytes": 3940
+    },
+    {
+      "locale": "de",
+      "path": "documentation/de.md",
+      "sha256": "be6975589098f4078adae0c979b4ba949cdfd961257bca1e401c0f6d28b215ce",
+      "bytes": 3904
+    },
+    {
+      "locale": "it",
+      "path": "documentation/it.md",
+      "sha256": "aecd95248b1132eba2f2131ac8e11d895a3ae8295ceeb124f5e6824a2e45a0f5",
+      "bytes": 3772
+    },
+    {
+      "locale": "ar",
+      "path": "documentation/ar.md",
+      "sha256": "9428b6890036cd0e80cfaf1b53122f1825b01b71d649cf847b903e0899cd54ec",
+      "bytes": 4539
+    },
+    {
+      "locale": "zh",
+      "path": "documentation/zh.md",
+      "sha256": "d1a2e7bfc20b059fb92ce123be20749cfd311c4d2bb67a91b3beebba01f66677",
+      "bytes": 3363
+    },
+    {
+      "locale": "ja",
+      "path": "documentation/ja.md",
+      "sha256": "49617c41a4c284695dfe279edb82665c6fe47f1bf3bd7803e4d29e0ea4e8d727",
+      "bytes": 3991
+    },
+    {
+      "locale": "hi",
+      "path": "documentation/hi.md",
+      "sha256": "b0afa829a996e812dfc71d7804eb1a395457b73633cf874eaa09824e50e810b7",
+      "bytes": 6262
+    }
+  ],
+  "scopeByLocale": {
+    "pt-BR": "Humanos; até 100 símbolos de genes; fontes GO:BP, GO:MF e GO:CC. Fundo anotado ou até 1.000 genes de fundo personalizado. Valores p são corrigidos pelo método escolhido. Não usa KEGG ou TRANSFAC.",
+    "en": "Human; up to 100 gene symbols; GO:BP, GO:MF and GO:CC sources. Annotated background or up to 1,000 custom background genes. P values use the selected multiple testing correction. KEGG and TRANSFAC are excluded.",
+    "es": "Humanos; hasta 100 símbolos de genes; fuentes GO:BP, GO:MF y GO:CC. Fondo anotado o hasta 1.000 genes de fondo personalizado. Los valores p usan la corrección seleccionada. Se excluyen KEGG y TRANSFAC.",
+    "fr": "Humain ; jusqu’à 100 symboles de gènes ; sources GO:BP, GO:MF et GO:CC. Fond annoté ou jusqu’à 1 000 gènes de fond personnalisés. Les valeurs p utilisent la correction choisie. KEGG et TRANSFAC sont exclus.",
+    "de": "Mensch; bis zu 100 Gensymbole; Quellen GO:BP, GO:MF und GO:CC. Annotierter Hintergrund oder bis zu 1.000 eigene Hintergrundgene. P-Werte verwenden die gewählte Korrektur für multiples Testen. KEGG und TRANSFAC sind ausgeschlossen.",
+    "it": "Umano; fino a 100 simboli di geni; fonti GO:BP, GO:MF e GO:CC. Fondo annotato o fino a 1.000 geni di fondo personalizzato. I valori p usano la correzione selezionata. KEGG e TRANSFAC sono esclusi.",
+    "ar": "الإنسان؛ حتى 100 رمز جين؛ مصادر GO:BP وGO:MF وGO:CC. خلفية مشروحة أو حتى 1,000 جين خلفية مخصصة. تُصحّح قيم p بالطريقة المختارة. لا يُستخدم KEGG أو TRANSFAC.",
+    "zh": "人类；最多 100 个基因符号；来源为 GO:BP、GO:MF 和 GO:CC。使用已注释背景或最多 1,000 个自定义背景基因。p 值采用所选多重检验校正。不使用 KEGG 或 TRANSFAC。",
+    "ja": "ヒト、最大100遺伝子シンボル、情報源はGO:BP、GO:MF、GO:CC。注釈付き背景または最大1,000遺伝子の独自背景。p値には選択した多重検定補正を適用します。KEGGとTRANSFACは使用しません。",
+    "hi": "मानव; अधिकतम 100 जीन प्रतीक; स्रोत GO:BP, GO:MF और GO:CC। एनोटेटेड पृष्ठभूमि या अधिकतम 1,000 कस्टम पृष्ठभूमि जीन। p मान चुने गए बहु-परीक्षण समायोजन से सुधारे जाते हैं। KEGG और TRANSFAC उपयोग नहीं होते।"
+  },
+  "reviewAndRightsByLocale": {
+    "pt-BR": {
+      "review": "Interface e contratos implementados na ELUCENIA. A análise depende da disponibilidade do serviço responsável. Revisão clínica independente e revisão linguística profissional não concluídas.",
+      "rights": "A API g:Profiler permite uso acadêmico e não acadêmico. Os dados Gene Ontology usam CC BY 4.0: preserve a atribuição, a versão e o DOI. KEGG e TRANSFAC não são consultados.",
+      "methodDisclosure": "O método SMM 1.0 é solicitado explicitamente. A documentação informa a API 2.15; a resposta não expõe o hash do modelo binário em execução."
+    },
+    "en": {
+      "review": "Interface and contracts implemented on ELUCENIA. Analysis depends on the responsible service being available. Independent clinical review and professional language review are incomplete.",
+      "rights": "The g:Profiler API permits academic and non-academic use. Gene Ontology data use CC BY 4.0: preserve attribution, release and DOI. KEGG and TRANSFAC are not queried.",
+      "methodDisclosure": "SMM 1.0 is requested explicitly. The documentation identifies API 2.15; the response does not expose the running binary model hash."
+    },
+    "es": {
+      "review": "Interfaz y contratos implementados en ELUCENIA. El análisis depende de la disponibilidad del servicio responsable. No se han completado la revisión clínica independiente ni la revisión lingüística profesional.",
+      "rights": "La API g:Profiler permite uso académico y no académico. Los datos Gene Ontology usan CC BY 4.0: conserve atribución, versión y DOI. No se consultan KEGG ni TRANSFAC.",
+      "methodDisclosure": "Se solicita explícitamente SMM 1.0. La documentación identifica la API 2.15; la respuesta no expone el hash del modelo binario en ejecución."
+    },
+    "fr": {
+      "review": "Interface et contrats implémentés dans ELUCENIA. L’analyse dépend de la disponibilité du service responsable. La révision clinique indépendante et la révision linguistique professionnelle ne sont pas achevées.",
+      "rights": "L’API g:Profiler permet un usage académique et non académique. Les données Gene Ontology utilisent CC BY 4.0 : conservez attribution, version et DOI. KEGG et TRANSFAC ne sont pas interrogés.",
+      "methodDisclosure": "SMM 1.0 est demandé explicitement. La documentation indique l’API 2.15 ; la réponse ne fournit pas l’empreinte du modèle binaire exécuté."
+    },
+    "de": {
+      "review": "Oberfläche und Schnittstellenverträge sind in ELUCENIA implementiert. Die Analyse hängt von der Verfügbarkeit des zuständigen Dienstes ab. Die unabhängige klinische Prüfung und die professionelle sprachliche Prüfung sind nicht abgeschlossen.",
+      "rights": "Die g:Profiler-API erlaubt akademische und nicht akademische Nutzung. Gene-Ontology-Daten stehen unter CC BY 4.0: Quellenangabe, Version und DOI müssen erhalten bleiben. KEGG und TRANSFAC werden nicht abgefragt.",
+      "methodDisclosure": "SMM 1.0 wird ausdrücklich angefordert. Die Dokumentation nennt API 2.15; die Antwort legt den Hash des ausgeführten binären Modells nicht offen."
+    },
+    "it": {
+      "review": "Interfaccia e contratti implementati in ELUCENIA. L’analisi dipende dalla disponibilità del servizio responsabile. La revisione clinica indipendente e la revisione linguistica professionale non sono complete.",
+      "rights": "L’API g:Profiler consente l’uso accademico e non accademico. I dati Gene Ontology usano CC BY 4.0: conservare attribuzione, versione e DOI. KEGG e TRANSFAC non vengono interrogati.",
+      "methodDisclosure": "SMM 1.0 viene richiesto esplicitamente. La documentazione indica API 2.15; la risposta non espone l’hash del modello binario in esecuzione."
+    },
+    "ar": {
+      "review": "تم تنفيذ الواجهة وعقود الطلب والاستجابة داخل ELUCENIA. يعتمد التحليل على توفر الخدمة المسؤولة. لم تكتمل المراجعة السريرية المستقلة ولا المراجعة اللغوية المهنية.",
+      "rights": "تسمح واجهة g:Profiler بالاستخدام الأكاديمي وغير الأكاديمي. تخضع بيانات Gene Ontology لترخيص CC BY 4.0؛ يجب الحفاظ على النسب والإصدار وDOI. لا يُستعلم عن KEGG أو TRANSFAC.",
+      "methodDisclosure": "يُطلب SMM 1.0 صراحةً. تحدد الوثائق واجهة API 2.15؛ ولا تكشف الاستجابة بصمة التجزئة للنموذج الثنائي قيد التشغيل."
+    },
+    "zh": {
+      "review": "ELUCENIA已实现界面及请求和响应契约。分析依赖相应服务的可用性。独立临床审核和专业语言审核尚未完成。",
+      "rights": "g:Profiler API允许学术和非学术使用。Gene Ontology数据采用CC BY 4.0：请保留署名、发布版本和DOI。不查询KEGG或TRANSFAC。",
+      "methodDisclosure": "请求明确指定SMM 1.0。文档标明API 2.15；响应不提供正在运行的二进制模型哈希。"
+    },
+    "ja": {
+      "review": "ELUCENIA内に画面とリクエスト・レスポンスの契約を実装しています。解析には提供元サービスの稼働が必要です。独立した臨床レビューと専門家による言語レビューは完了していません。",
+      "rights": "g:Profiler APIは学術・非学術用途で利用できます。Gene OntologyデータはCC BY 4.0に従うため、出典表示、公開版、DOIを保持してください。KEGGとTRANSFACは照会しません。",
+      "methodDisclosure": "SMM 1.0を明示的に指定します。文書にはAPI 2.15と記載されていますが、レスポンスには実行中のバイナリモデルのハッシュが含まれていません。"
+    },
+    "hi": {
+      "review": "ELUCENIA में इंटरफ़ेस और अनुरोध तथा प्रतिक्रिया अनुबंध लागू हैं। विश्लेषण संबंधित सेवा की उपलब्धता पर निर्भर है। स्वतंत्र नैदानिक समीक्षा और पेशेवर भाषा समीक्षा पूरी नहीं हुई हैं।",
+      "rights": "g:Profiler API अकादमिक और गैर-अकादमिक उपयोग की अनुमति देती है। Gene Ontology डेटा CC BY 4.0 के अंतर्गत है; श्रेय, संस्करण और DOI बनाए रखें। KEGG और TRANSFAC से पूछताछ नहीं की जाती।",
+      "methodDisclosure": "SMM 1.0 का स्पष्ट अनुरोध किया जाता है। दस्तावेज़ API 2.15 बताते हैं; प्रतिक्रिया चल रहे बाइनरी मॉडल का हैश नहीं देती।"
+    }
+  },
+  "interfaceKeys": [
+    "genes",
+    "sources",
+    "background",
+    "threshold",
+    "correction",
+    "excludeElectronic",
+    "confirm"
+  ],
+  "resultKeys": [
+    "termId",
+    "termName",
+    "source",
+    "adjustedP",
+    "overlap",
+    "querySize",
+    "termSize",
+    "universe",
+    "precision",
+    "recall",
+    "mapping",
+    "failed"
+  ],
+  "publicInputOnly": true,
+  "fullProviderImplemented": false,
+  "numericalReferenceCasesAdded": 0,
+  "approval": {
+    "clinical": "not-performed",
+    "professionalLanguage": "not-performed"
+  },
+  "sourceSnapshot": {
+    "websiteFreezeSha256": "b7ff37bd2e4c18b959c3431d9ff57d8ec654fbafacb0443eaea8be0c4a68b435",
+    "methodTransportSha256": "b862226c9d3b9956848ef29eb03177e6c4b64e8c2157f1ca360611c4ba1de036",
+    "providerLockSha256": "08ecf09dfdc0577008a720df82735ca26fc1bec2e1e8f7a49cb2817d2a86a9f1"
+  }
+}
