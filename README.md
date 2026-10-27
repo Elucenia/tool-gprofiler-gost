@@ -7,7 +7,7 @@ Human; up to 100 gene symbols; GO:BP, GO:MF and GO:CC sources. Annotated backgro
 `ELUCENIA-research-api-2026-10-05-v3`
 {
   "url": "https://biit.cs.ut.ee/gprofiler/",
-  "version": "e114_eg62_p19_27110d83",
+  "versionPattern": "^e114_eg62_p19_[0-9a-f]{8}$",
   "organism": "hsapiens",
   "sources": [
     "GO:BP",

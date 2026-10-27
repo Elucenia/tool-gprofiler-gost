@@ -4,5 +4,5 @@ The official g:Profiler FAQ offers academic and non-academic API use without a p
 
 CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
 Citation policy: https://geneontology.org/docs/go-citation-policy/
-GO release2026-01-23, DOI10.5281/zenodo.18422732; g:Profiler e114_eg62_p19_27110d83.
+GO release2026-01-23, DOI10.5281/zenodo.18422732; g:Profiler e114_eg62_p19_* (build accepted by pattern; the GO release is matched exactly).
 Service use: https://biit.cs.ut.ee/gprofiler/page/faq

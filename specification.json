@@ -5,7 +5,7 @@
   "implementationVersion": "ELUCENIA-research-api-2026-10-05-v3",
   "policy": {
     "url": "https://biit.cs.ut.ee/gprofiler/",
-    "version": "e114_eg62_p19_27110d83",
+    "versionPattern": "^e114_eg62_p19_[0-9a-f]{8}$",
     "organism": "hsapiens",
     "sources": [
       "GO:BP",
@@ -280,7 +280,8 @@
         "type": "object",
         "properties": {
           "gProfiler": {
-            "const": "e114_eg62_p19_27110d83"
+            "type": "string",
+            "pattern": "^e114_eg62_p19_[0-9a-f]{8}$"
           },
           "ensembl": {
             "type": "string"
@@ -450,62 +451,62 @@
     {
       "locale": "pt-BR",
       "path": "documentation/pt-BR.md",
-      "sha256": "e22da912b16676c7aec94fbbd36c0d8eeec899e7f464571348561dda46e66a3e",
-      "bytes": 3745
+      "sha256": "e22608bc0345a0316907a4c3acdd713cfff25356bce8e49ca21b91b73495ad0f",
+      "bytes": 3738
     },
     {
       "locale": "en",
       "path": "documentation/en.md",
-      "sha256": "ed9de36a77890f671067a90cc4cd4bdbb401ce9624f47fa47b055ac0651754f8",
-      "bytes": 3572
+      "sha256": "5feb5b3a559f43d30ceaad00bae33b5cd95e73ee18d12437544d8c2027462834",
+      "bytes": 3565
     },
     {
       "locale": "es",
       "path": "documentation/es.md",
-      "sha256": "b2ebc5b9f6e0108e3330b64d35c40b56353b6a6fcf612c53d87b0d379471b036",
-      "bytes": 3821
+      "sha256": "89aa123cdd03a1d897f72d6e613a50861fc2f904e2224a42a9f23ae9c33b4300",
+      "bytes": 3814
     },
     {
       "locale": "fr",
       "path": "documentation/fr.md",
-      "sha256": "c650787e0776834742ada98e503e7736629e5f0c735865742e24f0326c5ab6f4",
-      "bytes": 3940
+      "sha256": "5e07e940331d19b99541d052e804b2fece910d511f7a4f64c311825390b5fe23",
+      "bytes": 3933
     },
     {
       "locale": "de",
       "path": "documentation/de.md",
-      "sha256": "be6975589098f4078adae0c979b4ba949cdfd961257bca1e401c0f6d28b215ce",
-      "bytes": 3904
+      "sha256": "7271721dd879d5ff34ff61e90071815ff04d705bc0c758af86965d9a6ecceb99",
+      "bytes": 3897
     },
     {
       "locale": "it",
       "path": "documentation/it.md",
-      "sha256": "aecd95248b1132eba2f2131ac8e11d895a3ae8295ceeb124f5e6824a2e45a0f5",
-      "bytes": 3772
+      "sha256": "b7f8ab4ae52224270eac19e1c68373fb8b5a7d178b6d6a0bb086559a4fdb45de",
+      "bytes": 3765
     },
     {
       "locale": "ar",
       "path": "documentation/ar.md",
-      "sha256": "9428b6890036cd0e80cfaf1b53122f1825b01b71d649cf847b903e0899cd54ec",
-      "bytes": 4539
+      "sha256": "d3f6fd28cc856c9e2997c6729f145a109d1ab5f9df574a75b4c18ea08d7f87a0",
+      "bytes": 4532
     },
     {
       "locale": "zh",
       "path": "documentation/zh.md",
-      "sha256": "d1a2e7bfc20b059fb92ce123be20749cfd311c4d2bb67a91b3beebba01f66677",
-      "bytes": 3363
+      "sha256": "a75d99e38516273b229074c4f6f0ea91a374e114fbad70447b19b2b85ac2b422",
+      "bytes": 3356
     },
     {
       "locale": "ja",
       "path": "documentation/ja.md",
-      "sha256": "49617c41a4c284695dfe279edb82665c6fe47f1bf3bd7803e4d29e0ea4e8d727",
-      "bytes": 3991
+      "sha256": "804d96fe08ecc18f98c1fe6e26ec9990fa5aa423b5bf524192b3f48f266a4fd4",
+      "bytes": 3984
     },
     {
       "locale": "hi",
       "path": "documentation/hi.md",
-      "sha256": "b0afa829a996e812dfc71d7804eb1a395457b73633cf874eaa09824e50e810b7",
-      "bytes": 6262
+      "sha256": "dd9aa1fea633fe1cd6f51137698130db2ac9ad05571160773a87153d506ec2d9",
+      "bytes": 6255
     }
   ],
   "scopeByLocale": {
@@ -604,7 +605,7 @@
   },
   "sourceSnapshot": {
     "websiteFreezeSha256": "b7ff37bd2e4c18b959c3431d9ff57d8ec654fbafacb0443eaea8be0c4a68b435",
-    "methodTransportSha256": "b862226c9d3b9956848ef29eb03177e6c4b64e8c2157f1ca360611c4ba1de036",
-    "providerLockSha256": "08ecf09dfdc0577008a720df82735ca26fc1bec2e1e8f7a49cb2817d2a86a9f1"
+    "methodTransportSha256": "7579ddedf4c524c0dbc105f1cfb7b47ea5512b1653082c99ab4d139bb2f76ba1",
+    "providerLockSha256": "5c06f5e524e2f5552a0c912eed497b912ab220b91b1a3b984e1eb8a3bc6836a0"
   }
 }

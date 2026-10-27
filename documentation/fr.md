@@ -109,7 +109,7 @@ L’export conserve les sources, l’attribution, les versions et les limites. L
 
 ## Version
 
-`g:Profiler e114_eg62_p19_27110d83 · GO 2026-01-23 · DOI 10.5281/zenodo.18422732`
+`g:Profiler e114_eg62_p19_* · GO 2026-01-23 · DOI 10.5281/zenodo.18422732`
 
 ## Sources
 
